@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       function min(one,two)
+       {
+         return one>two?two:one;
+       }
+       document.write("Min: ", min(5,7),"<br>");
+       
+
+       function pow(number,pow)
+       {
+        return number**pow;
+       }
+       document.write("Pow: ",(pow(5,2)),"<br>");
+
+
+       function calc(one,sign,two)
+       {
+        if(sign=='+')
+          return one+two;
+        else if(sign=='-')
+          return one-two;
+        else if(sign=='*')
+          return one*two;
+        else if(sing=='/')
+          return one*two;
+        else
+           document.write("Wrong Sign!!!<br>");
+       }
+       document.write("Calc: ",calc(5,"*",7),"<br>");
+
+       function isPrime(number)
+       {
+        for (let index = 2; index < number/2; index++) {
+          if(number%index==0)
+               return false;
+        }
+        return true;
+       }
+       document.write("Is Prime? ",isPrime(15),"<br>");
+
+
+       function multiply(number)
+       {
+        for (let index = 1; index < 11; index++) {
+          document.write(index," * ",number," = ", index*number,"<br>");
+        }
+       }
+       multiply(9);
+
+       function left(one,two)
+       {
+        if(one<two)
+          [one,two]=[two,one];
+        if(!two)
+        {
+           document.write("Cant use 0!!!<b>");
+          return;
+       }
+       else
+       {
+         return one - (Math.floor(one / two) * two);
+       }
+       }
+       document.write("% Operator = ",left(15,4),"<br>");
+       
+
+       function summ()
+       {
+          let summ=0;
+          for (let index = 0; index < arguments.length; index++) {
+             if(index==5)
+              return summ;
+            summ+=arguments[index];
+          }
+          return summ;
+       }
+
+       document.write("Summ: ",summ(5,5,5),"<br>");
+
+
+       function max()
+       {
+          let max=arguments[0];
+          for (let index = 0; index < arguments.length; index++) {
+             if(index==5)
+              return max;
+            if(arguments[index]>max)
+               max=arguments[index];
+          }
+          return max;
+       }
+       document.write("Max: ",max(16,18,5,21,20),"<br>");
+
+       function diap(start,finish,flag)
+       {
+        for (let index = start; index <=finish; index++) {
+           if(flag==1)
+           {
+              if(index%2==0)
+                 document.write(index," ");
+           }
+           else
+            if(index%2==1)
+                document.write(index," ");
+        }
+       }
+       diap(5,15,0);
+       document.write("<br>")
+       function dateToString(day,month,year)
+       {
+        day=String(day);
+        month=String(month);
+        year=String(year);
+        str=day+"."+month+"."+year;
+        return str;
+       }
+       function datePlus(day,month,year)
+       {
+          newday=day+1;
+          newmonth=month;
+          newyear=year;
+          if(day>31 || day<1 || month>12 || month <1)
+            {
+              document.write("Wrong!");
+              return;
+            }
+          if(month==4 || month==6 || month==9 || month==11)
+             if(day>30)
+             {
+               document.write("Wrong!");
+                return;
+             }
+          if(month==2 && day>28)
+          {
+            if(year%4==0)
+              {
+                if(day>29)
+                {
+                  document.write("Wrong!");
+                  return;
+                }
+              }
+            else
+            {
+                  document.write("Wrong!");
+                  return;
+            }
+          }
+          if(newmonth==4 || newmonth==6 || newmonth==9 || newmonth==11)
+             if(newday>30)
+             {
+                newday=1;
+                newmonth+=1;
+                  return dateToString(newday,newmonth,newyear);
+             }
+          else if(newmonth==2)
+          {
+            if(newday==29)
+            {
+              if(year&4==0)
+              {
+                return dateToString(newday,newmonth,newyear);
+              }
+              else
+              {
+                newday=1;
+                newmonth+=1;
+              }
+            }
+          }
+          else if(newday>31)
+          {
+                newday=1;
+                newmonth+=1;
+                if(newmonth>12)
+                    {
+                      newmonth=1;
+                      newyear+=1;
+                      return dateToString(newday,newmonth,newyear);
+                    }
+                return dateToString(newday,newmonth,newyear);
+          } 
+          else
+            return dateToString(newday,newmonth,newyear);
+       }
+       document.write(datePlus(30,11,2022));
+    </script>
+</body>
+</html>
